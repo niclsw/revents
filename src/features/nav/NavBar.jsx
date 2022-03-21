@@ -17,7 +17,6 @@ const NavBar = ({ setFormOpen, selectedEvent }) => {
             inverted
             content="Create Event"
             onClick={() => setFormOpen(true)}
-            /* doesn't re-render the create new event component after props populate on the component, should be null */
             key={selectedEvent ? selectedEvent.id : null}
           />
         </Menu.Item>

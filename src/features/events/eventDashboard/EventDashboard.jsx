@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Grid } from "semantic-ui-react";
-import EventForm from "../eventForm/EventForm";
+import EventForm from "./EventForm";
 import EventList from "./EventList";
 import { sampleData } from "../../../app/api/sampleData";
 
@@ -16,6 +16,11 @@ const EventDashboard = ({
     setEvents([...events, event]);
   }
 
+  function handleUpdateEvent(updatedEvent) {
+    setEvents(events.map(evt => evt.id === updatedEvent.id ? updatedEvent : evt));
+    selectEvent(null);
+  }
+
   return (
     <Grid>
       <Grid.Column width={10}>
@@ -28,6 +33,7 @@ const EventDashboard = ({
             setEvents={setEvents}
             createEvent={handleCreateEvent}
             selectedEvent={selectedEvent}
+            updateEvent={handleUpdateEvent}
             key={selectedEvent ? selectedEvent.id : null}
           />
         )}

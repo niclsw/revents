@@ -15,12 +15,12 @@ function App() {
 
   function handleCreateFormOpen() {
     setSelectedEvent(null);
-    setFormOpen(null);
+    setFormOpen(true);
   }
 
   return (
     <>
-      <NavBar setFormOpen={setFormOpen} selectEvent={handleSelectEvent}/>
+      <NavBar setFormOpen={handleCreateFormOpen} selectEvent={handleSelectEvent}/>
       <Container className="main">
         <EventDashboard
           formOpen={formOpen}
